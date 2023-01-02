@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+// DOCUMENTATION:
 /**
  ViewModel is class that has all the methods to manage the views and data model.
  
