@@ -3,27 +3,27 @@ Shopping list app SwiftUI + CoreData
 
 ## Description of project navigation
 
-Root File:
+- Root File:
 
-CatsBagApp - @main.
+  - CatsBagApp - @main.
 
-View folder:
+- View folder:
 
-ContentView - root view to get access to tree of views(FolderView -> ItemView -> Add/UpdateItemView).
+  - ContentView - root view to get access to tree of views(FolderView -> ItemView -> Add/UpdateItemView).
 
-FolderView - view with list of folders and navigationLink to ItemView.
+  - FolderView - view with list of folders and navigationLink to ItemView.
 
-ItemView - view with list of items.
+  - ItemView - view with list of items.
 
-AddItemView - view with text fields and pickers to set up item properties.
+  - AddItemView - view with text fields and pickers to set up item properties.
 
-UpdateItemView - view with text fields and pickers to change item properties.
+  - UpdateItemView - view with text fields and pickers to change item properties.
 
-ViewModel folder:
+- ViewModel folder:
 
-PersistenceController - controller to get access to CoreData container.
+  - PersistenceController - controller to get access to CoreData container.
 
-ViewModel - class that contains all the methods to manage the views and data model.
+  - ViewModel - class that contains all the methods to manage the views and data model.
 
 ## Stack
 
