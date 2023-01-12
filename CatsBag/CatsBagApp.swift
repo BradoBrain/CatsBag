@@ -11,7 +11,7 @@ import SwiftUI
 struct CatsBagApp: App {
     // Add environment to manage ScenePhase
     @Environment(\.scenePhase) var scenePhase
-    // Add environment to get access to ViewModel from all View. CatsBag id now root view.
+    // Add environment to get access to ViewModel from all View. CatsBag is now root view.
     @StateObject var vm = ViewModel()
     
     var body: some Scene {
