@@ -13,8 +13,8 @@ import SwiftUI
  All items have folderName attribute to filter them by folder.
  
  - NAVIGATION:
-    - AddItemView
-    - UpdateItemView
+ - AddItemView
+ - UpdateItemView
  
  */
 struct ItemView: View {
@@ -38,33 +38,58 @@ struct ItemView: View {
                 ForEach(items, id: \.id) { item in
                     Group {
                         if item.folderName == folder.name {
-                            NavigationLink(destination: UpdateItemView(item: item)) {
-                                HStack {
-                                    Text(item.name ?? "Error: item.name is nil")
-                                    Spacer()
-                                    Text(item.number ?? "Error: item.number is nil")
-                                    Text(item.measurement ?? "Error: item.measurement is nil")
+                            if #available(iOS 16.0, *) {
+                                NavigationLink(destination: UpdateItemView(item: item)) {
+                                    HStack {
+                                        Text(item.name ?? "Error: item.name is nil")
+                                        Spacer()
+                                        Text(item.number ?? "Error: item.number is nil")
+                                        Text(item.measurement ?? "Error: item.measurement is nil")
+                                    }
                                 }
+                                .bold()
+                                .strikethrough(item.done, pattern: .solid, color: .gray)
+                                .foregroundColor(item.done ? .gray : .black.opacity(0.5))
+                                .font(.title3)
+                                .padding()
+                                .listRowSeparator(.hidden)
+                                .listRowInsets(EdgeInsets())
+                                .listRowBackground(Color("background"))
+                                .ignoresSafeArea(edges: .horizontal)
+                                .background(item.done ? Color("boughtItem") : vm.getColor(item: item))
+                                .cornerRadius(15)
+                                .padding(EdgeInsets(top: 2, leading: 15, bottom: 2, trailing: 15))
+                            } else {
+                                NavigationLink(destination: UpdateItemView(item: item)) {
+                                    HStack {
+                                        Text(item.name ?? "Error: item.name is nil")
+                                        Spacer()
+                                        Text(item.number ?? "Error: item.number is nil")
+                                        Text(item.measurement ?? "Error: item.measurement is nil")
+                                    }
+                                }
+                                .foregroundColor(item.done ? .gray : .black.opacity(0.5))
+                                .font(.title3)
+                                .padding()
+                                .listRowSeparator(.hidden)
+                                .listRowInsets(EdgeInsets())
+                                .listRowBackground(Color("background"))
+                                .ignoresSafeArea(edges: .horizontal)
+                                .background(item.done ? Color("boughtItem") : vm.getColor(item: item))
+                                .cornerRadius(15)
+                                .padding(EdgeInsets(top: 2, leading: 15, bottom: 2, trailing: 15))
                             }
-                            .bold()
-                            .strikethrough(item.done, pattern: .solid, color: .gray)
-                            .foregroundColor(item.done ? .gray : .black.opacity(0.5))
-                            .font(.title3)
-                            .padding()
-                            .listRowSeparator(.hidden)
-                            .listRowInsets(EdgeInsets())
-                            .listRowBackground(Color("background"))
-                            .ignoresSafeArea(edges: .horizontal)
-                            .background(item.done ? Color("boughtItem") : vm.getColor(item: item))
-                            .cornerRadius(15)
-                            .padding(EdgeInsets(top: 2, leading: 15, bottom: 2, trailing: 15))
                         }
                     }
                     .swipeActions(edge: .leading, allowsFullSwipe: true) {
                         Button(action: {
                             item.done.toggle()
                         }, label: {
-                            Image(systemName: "basket.fill")
+                            if #available(iOS 16.0, *) {
+                                Image(systemName: "basket.fill")
+                            } else {
+                                Image(systemName: "bag")
+                            }
                         })
                         .tint(item.done ? Color.gray : Color.green)
                     }
@@ -83,7 +108,8 @@ struct ItemView: View {
             } label: {
                 Image(systemName: "plus.circle.fill")
                     .font(.system(size: 54))
-            } .sheet(isPresented: $showAddView) {
+            }
+            .sheet(isPresented: $showAddView) {
                 AddItemView(folder: folder)
             }
         }

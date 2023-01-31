@@ -51,6 +51,8 @@ struct UpdateItemView: View {
                         Text(LocalizedStringKey("Millilitre")).tag("ml")
                         Text(LocalizedStringKey("Kilogram")).tag("kg")
                     } .pickerStyle(.wheel)
+                        .frame(minWidth: 0)
+                        .clipped()
                     
                     Divider().frame(height: 180)
                     
@@ -75,6 +77,8 @@ struct UpdateItemView: View {
                             Text(LocalizedStringKey("Nuts & Seeds")).tag("Nuts & Seeds")
                         }
                     } .pickerStyle(.wheel)
+                        .frame(minWidth: 0)
+                        .clipped()
                 }
                 
                 if !updateName.isEmpty {

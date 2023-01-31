@@ -1,0 +1,34 @@
+/* 
+  Localizable.strings
+  CatsBag
+
+  Created by Artem Vinogradov on 26.01.2023.
+  
+*/
+
+"Enter a name for the new folder" = "Neuer Ordnername";
+"New product name" = "Neuer Produktname";
+"Number" = "Anzahl";
+"Ounce" = "Unze";
+"Pound" = "Pfund";
+"Gram" = "Gramm";
+"Pint" = "Pint";
+"Item" = "Artikel";
+"Litre" = "Liter";
+"Gallon" = "Gallone";
+"Millilitre" = "Milliliter";
+"Kilogram" = "Kilogramm";
+"Sweets & Candy" = "Süßigkeiten";
+"Fish & Seafood" = "Fisch";
+"Bread & Flour" = "Brotmehl";
+"Vagetables" = "Gemüse";
+"Fat & Oil" = "Fett & Öl";
+"Drinks" = "Getränke";
+"Uncategorized" = "Kein";
+"Fruit" = "Obst";
+"Milk & Egg" = "Milch & Ei";
+"Meat & Soy" = "Fleisch & Soja";
+"Mushrooms" = "Pilze";
+"Nuts & Seeds" = "Nüsse & Samen";
+"SAVE" = "SPEICHERN";
+"UPDATE" = "AKTUALISIEREN";

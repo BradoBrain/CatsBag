@@ -14,13 +14,23 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            ZStack(alignment: .top) {
-                VStack {
-                    TopBarView()
-                    
-                    FolderView()
-                }
-            } .toolbar(.hidden)
+            if #available(iOS 16.0, *) {
+                ZStack(alignment: .top) {
+                    VStack {
+                        TopBarView()
+                        
+                        FolderView()
+                    }
+                } .toolbar(.hidden)
+            } else {
+                ZStack(alignment: .top) {
+                    VStack {
+                        TopBarView()
+                        
+                        FolderView()
+                    }
+                } .navigationBarHidden(true)
+            }
         } .accentColor(Color("accent"))
     }
 }

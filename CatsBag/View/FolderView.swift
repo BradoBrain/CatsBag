@@ -25,7 +25,7 @@ struct FolderView: View {
             List {
                 // MARK: - TextField to add new folder with name
                 Group {
-                    TextField("Enter a name for the new folder", text: $vm.folderName)
+                    TextField(LocalizedStringKey("Enter a name for the new folder"), text: $vm.folderName)
                         .padding()
                         .font(.title3)
                         .foregroundColor(.black.opacity(0.6))
@@ -47,8 +47,16 @@ struct FolderView: View {
                 // MARK: - List of folders
                 ForEach(folders) { folder in
                     NavigationLink(destination: ItemView(folder: folder)) {
-                        LabeledContent(folder.name ?? "", value: "\(folder.items?.count ?? 0)")
-                            .foregroundColor(.black.opacity(0.6))
+                        if #available(iOS 16.0, *) {
+                            LabeledContent(folder.name ?? "", value: "\(folder.items?.count ?? 0)")
+                                .foregroundColor(.black.opacity(0.6))
+                        } else {
+                            HStack {
+                                Text(folder.name ?? "")
+                                Spacer()
+                                Text("\(folder.items?.count ?? 0)")
+                            } .foregroundColor(.black.opacity(0.6))
+                        }
                     }
                 }
                 .onDelete { indexSet in

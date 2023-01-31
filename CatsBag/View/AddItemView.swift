@@ -33,13 +33,13 @@ struct AddItemView: View {
                 } .padding(.top, 15)
                 // MARK: - Add item section
                 HStack {
-                    TextField("New product name", text: $vm.itemName)
+                    TextField(LocalizedStringKey("New product name"), text: $vm.itemName)
                         .padding()
                         .foregroundColor(.black.opacity(0.6))
                         .background(Color("folderColor"))
                         .cornerRadius(20)
                     
-                    TextField("Number", text: $vm.itemNumber)
+                    TextField(LocalizedStringKey("Number"), text: $vm.itemNumber)
                         .padding()
                         .frame(width: 100)
                         .foregroundColor(.black.opacity(0.6))
@@ -50,7 +50,7 @@ struct AddItemView: View {
                 
                 HStack {
                     Picker("Measurement", selection: $vm.itemMeasurement) {
-                        Text(LocalizedStringKey("Ounce")).tag("oz")
+                        Text(LocalizedStringKey("Ounce")).tag(("oz"))
                         Text(LocalizedStringKey("Pound")).tag("lb")
                         Text(LocalizedStringKey("Gram")).tag("g")
                         Text(LocalizedStringKey("Pint")).tag("pt")
@@ -60,6 +60,8 @@ struct AddItemView: View {
                         Text(LocalizedStringKey("Millilitre")).tag("ml")
                         Text(LocalizedStringKey("Kilogram")).tag("kg")
                     } .pickerStyle(.wheel)
+                        .frame(minWidth: 0)
+                        .clipped()
                     
                     Divider().frame(height: 180)
                     
@@ -84,6 +86,8 @@ struct AddItemView: View {
                             Text(LocalizedStringKey("Nuts & Seeds")).tag("Nuts & Seeds")
                         }
                     } .pickerStyle(.wheel)
+                        .frame(minWidth: 0)
+                        .clipped()
                 }
                 // MARK: - New item button
                 if !vm.itemName.isEmpty {
@@ -99,7 +103,7 @@ struct AddItemView: View {
                             vm.itemCategory = "Uncategorized"
                         }
                     } label: {
-                        Text("SAVE")
+                        Text(LocalizedStringKey("SAVE"))
                             .padding()
                             .foregroundColor(.white)
                             .frame(width: 150)
