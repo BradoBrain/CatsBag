@@ -36,3 +36,7 @@ MVVM
 <p float="left">
 <img src="https://user-images.githubusercontent.com/97796448/210278695-8145195a-24e6-4b4a-9359-7ee9af1499cb.mp4" width="390" height="844">
 </p>
+
+## TO-DO
+
+To figure out how to test CoreData
