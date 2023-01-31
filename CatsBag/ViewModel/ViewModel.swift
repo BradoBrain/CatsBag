@@ -136,10 +136,6 @@ class ViewModel: ObservableObject {
     @Published var itemNumber = ""
     @Published var itemMeasurement = "it"
     @Published var itemCategory = "Uncategorized"
-//    @Published var updatedName = ""
-//    @Published var updatedNumber = ""
-//    @Published var updatedMeasurement = "it"
-//    @Published var updatedCategory = "Uncategorized"
     // MARK: - Folder part
     /// Method to add new folder with name
     func addFolder() {
